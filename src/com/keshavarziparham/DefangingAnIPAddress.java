@@ -13,19 +13,32 @@ public class DefangingAnIPAddress {
     public static void main(String[] args) {
         String address = "1.11.1.1";
         System.out.println(defrangIPaddr(address));
+        System.out.println("Low level: " + defrangIPaddr1(address));
     }
 
-    public static String defrangIPaddr1(String address){
+    //Lower-level approach
+    public static String defrangIPaddr1(String address) {
         int i = 0;
-        while (address.indexOf(i) != -1){
-            if (address.indexOf(i) == '.'){
-                //address.
+        StringBuilder addressNew = new StringBuilder();
+        //System.out.println("Address index: " + address.charAt(i));
+        while (i < (address.length() - 1)) {
+            if (address.charAt(i) == '.') {
+                addressNew.append("[.]");
             }
+            else {
+                addressNew.append(address.charAt(i));
+            }
+            i++;
         }
-        return null;
+        return addressNew.toString();
     }
 
     public static String defrangIPaddr(String address) {
         return address.replace(".", "[.]");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
