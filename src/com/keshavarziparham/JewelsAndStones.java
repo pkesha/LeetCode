@@ -19,13 +19,30 @@ Note:
 - The characters in J are distinct.
  */
 
+import java.util.HashSet;
+import java.util.List;
+
 public class JewelsAndStones {
     public static void main(String[] args) {
 
     }
 
     public static int numJewelsInStones(String J, String S) {
-        return 0;
+        //Because J is always distinct we know this is a Hash Set
+
+        //Adding characters of J into hash set jewel
+        HashSet<Character> jewel = new HashSet<>();
+        for (int i = 0; i < J.length(); i++){
+            jewel.add(J.charAt(i));
+        }
+
+        int numJewels = 0;
+        for (int i = 0; i < S.length(); i++){
+            if(jewel.contains(S.charAt(i))){
+                numJewels++;
+            }
+        }
+        return numJewels;
     }
 
 }
