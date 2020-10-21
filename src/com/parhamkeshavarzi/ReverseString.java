@@ -20,15 +20,21 @@ Output: ["h","a","n","n","a","H"]
 
 public class ReverseString {
     public static void main(String[] args) {
-        System.out.println(3/2);
-
+        char[] string = {'h', 'e', 'l', 'l', 'o'};
+        System.out.println(reverseString(string));
     }
 
-    public static void reverseString(char[] s) {
+    public static char[] reverseString(char[] s) {
         int charLength = s.length - 1;
-        for(int i = 0; i < charLength/2; i++){
-            s[i] = 
+        char a, b;
+        for(int i = 0; i <= s.length/2; i++){
+            a = s[i];
+            b = s[charLength - i];
+            s[i] = b;
+            s[charLength - i] = a;
         }
+
+        return s;
     }
 
 }
